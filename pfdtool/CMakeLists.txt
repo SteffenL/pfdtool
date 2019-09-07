@@ -1,4 +1,10 @@
 set(TARGET_NAME pfdtool)
+
+if(EXISTS ${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+    include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+    conan_basic_setup()
+endif()
+
 file(GLOB SOURCES src/*.c)
 
 if(WIN32)

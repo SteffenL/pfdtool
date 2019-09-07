@@ -1,5 +1,10 @@
 set(TARGET_NAME libpfdtool)
 
+if(EXISTS ${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+    include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+    conan_basic_setup()
+endif()
+
 file(GLOB SOURCES src/*.c)
 
 if(USE_AES_IMPL STREQUAL AES_IMPL_POLARSSL)
